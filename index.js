@@ -93,7 +93,7 @@ class Car {
             this.odometer = this.odometer + distanceToEmpty;
             this.tank = 0;
             return `I ran out of gas at ${distanceToEmpty} miles!`;
-        };
+        }
     }
 }
 
@@ -117,7 +117,7 @@ class Lambdasian {
     }
     speak() {
         return `Hello, my name is ${this.name}, I am from ${this.location}`;
-    };
+    }
 }
 
 /*
@@ -215,7 +215,24 @@ class ProjectManager extends Instructor {
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
+///Adds a property 'grade' to Student object prototype
+Student.prototype.grade = Math.floor(Math.random() * 100);
 
+///Adds a method 'adjustGrade' to Instructor object prototype
+/// takes a student object and a subject as arguments and changes
+/// student.grade to a random number between 0-100, returning 
+/// string 'student.name scored grade in subject'
+Instructor.prototype.adjustGrade = (student, subject) => {
+    student.grade = Math.floor(Math.random() * 100);
+    return `${student.name} scored ${student.grade} in ${subject}`;
+};
+
+/// Adds a 'graduate' method to Student object prototype
+/// that checks the if the grade of student os above 70%.
+/// Returns true if 70% or higher, otherwise false;
+Student.prototype.graduate = function() {
+    return this.grade >= 70 ? true : false;
+};
 
 //End of Challenge
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
