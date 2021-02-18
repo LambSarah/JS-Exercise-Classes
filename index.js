@@ -161,10 +161,24 @@ class Instructor extends Lambdasian {
     - Student instances have the following methods:
         + `listSubjects` a method that returns all of the student's favSubjects in a single string: `Loving HTML, CSS, JS!`.
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
-        + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
+        + `sprintCha{llenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian {
+    constructor(studentAttrs) {
+        super(studentAttrs);
+        this.previousBackground = studentAttrs.previousBackground;
+        this.className = studentAttrs.className;
+        this.favSubjects = studentAttrs.favSubjects;
+    }
+    listSubjects() {
+        return `Loving ${this.favSubjects}!`;
+    }
+    PRAssignment(subject) {
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+    sprintChallenge(subject) {
+        return `${this.name} .studenthas begun sprint challenge on ${subject}`;
+    }
 }
 
 /*
